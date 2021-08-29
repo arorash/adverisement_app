@@ -1,24 +1,32 @@
-# README
+# Advertisement App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a simple Ruby on Rails application with bootstrap framework. User can view published advertisements and add public comment for each advertisement.
+If user want to public its own advertisement then they should registered with their email id and logged in. After log in the user gets create advertisement, edit advertisement, publish advertisement, delete advertisement functionalities and they are free to use them.
 
-Things you may want to cover:
+### Live Demo
 
-* Ruby version
+[Click Here](https://publish-ads.herokuapp.com/)
 
-* System dependencies
+### Device Supported
 
-* Configuration
+* Laptop/PC
+* Mobile Devices like iPhone/Android
 
-* Database creation
+## User Functionalities:
 
-* Database initialization
+* Registration
+* Login/Logout
+* Create Advertisement
+* Edit/Publish Advertisement
+* View Advertisement
+* Delete Advertisement
+* Add Public Comment on each Advertisement
 
-* How to run the test suite
+## Technology Used and its versions:
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Ruby - 3.0.2
+* Rails - 6.1.4.1
+* Yarn - 1.22.5
+* Nodejs - 14.17.5
+* Bootstrap - 5.1.0
+* pg - 1.2.3
