@@ -1,0 +1,42 @@
+<%= form_with(model: advertisement) do |form| %>
+  <% if advertisement.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(advertisement.errors.count, "error") %> prohibited this advertisement from being saved:</h2>
+
+      <ul>
+        <% advertisement.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <br>
+  <div class="field form-group">
+    <% form.label :title %>
+    <%= form.text_field :title, class: "form-control",placeholder: "Title" %>
+  </div>
+  <br>
+  <div class="field form-group">
+    <% form.label :offer %>
+    <%= form.text_field :offer, class: "form-control",placeholder: "Offer" %>
+  </div>
+  <br>
+  <div class="field form-group">
+    <% form.label :discription %>
+    <%= form.text_field :discription, class: "form-control",placeholder: "Discription" %>
+  </div>
+  <br>
+  <div class="field form-group">
+    <% form.label :user_id %>
+    <%= form.number_field :user_id,id: :advertisement_user_id, value: current_user.id,type: :hidden  %>
+  </div>
+  <div class="field">
+    <% form.label :publish_status %>
+
+    <%= form.select :publish_status, ['Not Publish','Publish'], :style=>"width:100%"  %>
+  </div>
+  <br>
+  <div class="actions">
+    <%= form.submit class: "btn btn-secondary" %>
+  </div>
+<% end %>

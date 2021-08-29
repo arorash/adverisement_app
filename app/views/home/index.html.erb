@@ -1,0 +1,37 @@
+
+
+<h1>Advertisements</h1>
+<br>
+
+<div class="row">
+<% @advertisements.each do |advertisement| %>
+
+  <% if advertisement.publish_status=="Publish" %>
+  
+    <div class="col-lg-6 col-md-6" style="margin-bottom: 30px;">
+      <div class="card bg-dark text-black">
+        <img class="card-img" src="<%= asset_path 'banner.jpg' %>" alt="Card image" style="height: 400px;width: 100%;">
+        <div class="card-img-overlay">
+          <h2 class="card-title" style="font-size:40px;margin-top: 20px;"><%= advertisement.title %></h2>
+          <p class="card-text" style="font-size: 30px;font-weight: bold;font-style: italic;margin-top: 20px;"><%= advertisement.offer %></p>
+          <p class="card-text" style="margin-top: 30px;"><%= advertisement.discription %></p>
+        </div>
+      </div>
+      <br>
+      <div style="text-align: center;">
+      <%= link_to "View/Add Comments", advertisement, class:"btn btn-secondary" %>
+      </div>
+      
+    </div>
+  <% end %>
+  
+    
+<% end %>
+</div>
+
+
+
+
+
+
+

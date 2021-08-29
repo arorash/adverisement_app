@@ -1,0 +1,40 @@
+
+
+<h1>Advertisements </h1>
+<br>
+<div style="overflow-x:auto;">
+  <table class="table table-striped">
+    <thead class="bg-dark text-white">
+      <tr>
+        <th>Title</th>
+        <th>Offer</th>
+        <th>Discription</th>
+        <th>Publish Status</th>
+        <th>View</th>
+        <th>Edit</th>
+        
+        <th>Delete</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @advertisements.each do |advertisement| %>
+        <% if advertisement.user == current_user %>
+          <tr>
+            <td><%= advertisement.title %></td>
+            <td><%= advertisement.offer %></td>
+            <td><%= advertisement.discription %></td>
+            <td><%= advertisement.publish_status %></td>
+            <td><%= link_to 'View', advertisement %></td>
+            
+            <td><%= link_to 'Edit', edit_advertisement_path(advertisement) %></td>
+            <td><%= link_to 'Delete', advertisement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<br>
+
+<%= link_to 'Create New Advertisement', new_advertisement_path, class: "btn btn-secondary" %>

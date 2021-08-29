@@ -1,0 +1,53 @@
+<div class="row">
+  <div class="col-lg-3"></div>
+<div class="col-lg-6 col-md-12" style="margin-bottom: 30px;">
+      <div class="card bg-dark text-black">
+        <img class="card-img" src="<%= asset_path 'banner.jpg' %>" alt="Card image" style="height: 400px;width: 100%;">
+        <div class="card-img-overlay">
+          <h2 class="card-title" style="font-size:40px;"><%= @advertisement.title %></h2>
+          <p class="card-text" style="font-size: 30px;font-weight: bold;font-style: italic;"><%= @advertisement.offer %></p>
+          <p class="card-text"><%= @advertisement.discription %></p>
+        </div>
+      </div>
+      <br>
+      <div class="form-group">
+        <%= form_with model: [ @advertisement, @advertisement.user_comments.build ] do |form| %>
+    
+    <p>
+      <% form.label :body %>
+      <%= form.text_area :body, class:"form-control", placeholder:"Add a public Comment..." %>
+    </p>
+    <p>
+      <% form.label :commenter %>
+      <%= form.text_field :commenter, class:"form-control", placeholder:"Comment By" %>
+    </p>
+    <p style="text-align:right;">
+      <%= form.submit class:"btn btn-secondary" %>
+    </p>
+  <% end %>
+  
+  <% i=1 %>
+      <hr style="height:4px;">
+  <% @advertisement.user_comments.each do |user_comment| %>
+  <% if i==@advertisement.user_comments.length %>
+  <% break %>
+  <% end %>
+  <% i=i+1 %>
+  <div class="card border-primary mb-3">
+  <div class="card-header"><%= user_comment.commenter %></div>
+  <div class="card-body text-primary">
+    
+    <p class="card-text"><%= user_comment.body %></p>
+  </div>
+</div>
+    
+  <% end %>
+  
+      </div>
+      
+    </div>
+    <div class="col-lg-3"></div>
+  </div>
+
+
+
